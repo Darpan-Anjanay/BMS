@@ -17,7 +17,7 @@ class BookAdmin(admin.ModelAdmin):
     search_fields = ['Title','Author']
     list_filter = ['Department']
     list_display_links = ['Title']
-
+   
     def image_tag(self,obj):
         if obj.CoverImage:
             return format_html('<img src="{}" style="max-height: 100px; max-width: 100px;" />', obj.CoverImage.url)
@@ -40,6 +40,8 @@ class BorrowedBookAdmin(admin.ModelAdmin):
     list_display = ['Student', 'Book', 'BorrowDate', 'ReturnDate', 'Actual_return_Date', 'Returned', 'FineAmount']
     list_filter = ['Returned']
     # exclude = ['Actual_return_Date']
+    list_editable = ['Returned']
+
 
     def has_change_permission(self, request, obj = None):
         if obj is not None and obj.Returned:

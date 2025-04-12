@@ -1,19 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-
-# class User(AbstractUser):
-#     USER_TYPE_CHOICES = (
-#         ('student', 'Student'),
-#         ('faculty', 'Faculty'),
-#         ('librarian', 'Librarian'),
-#         ('guest', 'Guest'),
-#     )
-#     UserType = models.CharField(max_length=50,choices=USER_TYPE_CHOICES)
-#     ProfileImage = models.ImageField(upload_to='ProfileImage', null=True, blank=True)
-   
-
-
-
 class Department(models.Model):
     DepartmentName = models.CharField(max_length=255,verbose_name='Department Name')
     User = models.ForeignKey(User, on_delete=models.CASCADE)
